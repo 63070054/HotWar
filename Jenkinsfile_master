@@ -5,10 +5,8 @@ pipeline {
             stage('Initialization Stage') {
                 steps {
                     echo 'we are initializing bro ;-;'
-                    echo 'try webhook setting the last final'
                     echo 'Initial : Delete containers and images'
-                     dir('devTool-week_10') {
-                        echo "Current path is  ${pwd()}"
+                     dir('HotWar') {
                         sh 'docker-compose down --rmi all --volumes || true'
                      }
                 }
@@ -17,8 +15,7 @@ pipeline {
             stage('Building Stage'){
                 steps {
                     echo 'we are building bro ;-;'
-                    dir('devTool-week_10') {
-                        echo "Current path is ${pwd()}"
+                    dir('HotWar') {
                         sh "docker-compose build"
                     }
                 }
@@ -27,11 +24,10 @@ pipeline {
             stage('Pushing Stage'){
                 steps {
                     echo 'we are pushing bro ;-;'
-                    dir('devTool-week_10') {
+                    dir('HotWar') {
                         withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
                             sh 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
                         }
-                        sh 'docker push kapraokai/my-backend_image:1.0'
                         sh 'docker push kapraokai/my-frontend_image:1.0'
                     }
                 }
