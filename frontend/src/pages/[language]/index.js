@@ -12,6 +12,8 @@ export default function Home() {
 
   const [value, setValue] = useState("");
 
+  console.log("MAKE NEW CHANGE FOR WEBHOOK");
+
   const generateLang = () => {
     const randomNum = Math.floor(Math.random() * lengthSelectLang);
     const randomWords = selectLang[randomNum];
