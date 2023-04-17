@@ -26,7 +26,6 @@ export default function Home() {
     tempInput.select();
     document.execCommand("copy");
     document.body.removeChild(tempInput);
-    console.log("Text copied to clipboard");
 
     Toast.fire({
       icon: "success",
