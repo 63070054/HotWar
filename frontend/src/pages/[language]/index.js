@@ -19,7 +19,15 @@ export default function Home() {
   };
 
   const handleClick = () => {
-    navigator.clipboard.writeText(value);
+    // navigator.clipboard.writeText(value);
+    const tempInput = document.createElement("input");
+    tempInput.value = value;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
+    console.log("Text copied to clipboard");
+
     Toast.fire({
       icon: "success",
       title: "Copy สำเร็จแล้ว",
