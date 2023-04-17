@@ -7,7 +7,6 @@ services:
       dockerfile: Dockerfile
     image: kapraokai/my-frontend_image:1.0
     ports:
-      - '3000:8080'
+      - '3000:3000'
     volumes:
       - .:/app
-    command: ["yarn", "dev"]
