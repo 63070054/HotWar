@@ -5,8 +5,8 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
-    image: kapraokai/my-frontend_image:1.0
+    image: my-frontend_image:1.0
     ports:
-      - '3000:8080'
-    volumes:
-      - .:/app
+      - "3000:3000"
+    restart: always
+    command: ["yarn", "dev"]

@@ -1,20 +1,20 @@
 # Set the base image to use for this container
-FROM node:14
+FROM node:16
 
-# Set the working directory to /app
+# Set the working directory to the root of the project
 WORKDIR /app
 
-# Copy package.json and package-lock.json to the working directory
-COPY package*.json ./
+# Copy the package.json and yarn.lock (or package-lock.json) files to the container
+COPY package.json yarn.lock* ./
 
 # Install dependencies
 RUN yarn
 
-# Copy the rest of the application files to the working directory
+# Copy the rest of the project files to the container
 COPY . .
 
-# Expose port 3000
-EXPOSE 3000
+# Build the Next.js app
+RUN yarn build
 
-# Start the application
+# Start the app
 CMD ["yarn", "dev"]

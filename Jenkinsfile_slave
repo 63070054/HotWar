@@ -32,7 +32,7 @@ pipeline {
                 echo 'we are running the image that i just pulled bro ;-;'
                     dir('HotWar') {
                         echo "Current path is ${pwd()}"
-                        sh "docker run -d -p 3000:8080 --name ${DOCKER_CONTAINER_NAME_FRONTEND} ${DOCKER_IMAGE_NAME_FRONTEND}"
+                        sh "docker run -d -p 3000:3000 --name ${DOCKER_CONTAINER_NAME_FRONTEND} ${DOCKER_IMAGE_NAME_FRONTEND}"
                     }
                 }
             }
