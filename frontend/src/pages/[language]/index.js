@@ -29,28 +29,41 @@ export default function Home() {
   return (
     <>
       <NavBar />
-      <div className="flex flex-col h-screen container px-40 py-20 mx-auto">
-        <textarea
-          id="message"
-          className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          contenteditable
-          readOnly
-          rows={4}
-          value={value}
-          onClick={handleClick}
-        ></textarea>
-        <div className="grow relative flex justify-center">
-          <img src={"/nong_blue.png"} className="h-96 w-96" />
-        </div>
-        <div className="grow relative flex justify-center">
-          <button
-            type="button"
-            className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 cursor-pointer"
-            onClick={generateLang}
-          >
-            GENERATE
-          </button>
-        </div>
+      <div className="flex flex-col h-screen container px-4 py-20 md:px-40 md:py-20 mx-auto">
+        {selectLang ? (
+          <>
+            <textarea
+              id="message"
+              className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              contenteditable
+              readOnly
+              rows={4}
+              value={value}
+              onClick={handleClick}
+            ></textarea>
+            <div className="grow relative flex justify-center">
+              <img src={"/nong_blue.png"} className="h-96 w-96" />
+            </div>
+            <div className="relative flex justify-center">
+              <button
+                type="button"
+                className="px-4 w-full md:w-64 h-16 text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br font-medium rounded-lg text-sm text-center cursor-pointer"
+                onClick={generateLang}
+              >
+                GENERATE
+              </button>
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="text-white text-2xl md:text-6xl flex items-center justify-center grow">
+              ยังไม่มีภาษานี้งับ รอพัฒนาในอนาคต
+            </div>
+            <div className="grow relative flex justify-center">
+              <img src={"/nong_blue.png"} className="h-96 w-96" />
+            </div>
+          </>
+        )}
       </div>
     </>
   );

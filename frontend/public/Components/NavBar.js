@@ -33,7 +33,7 @@ const NavBar = () => {
   const { language } = router.query;
 
   return (
-    <div className="flex gap-2 justify-center py-2">
+    <div className="flex gap-2 justify-center pt-4">
       {countries.map((country, index) => (
         <Link href={country.link} key={index}>
           <img
