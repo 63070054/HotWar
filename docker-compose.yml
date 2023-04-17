@@ -8,5 +8,3 @@ services:
     image: kapraokai/my-frontend_image:1.0
     ports:
       - '3000:3000'
-    volumes:
-      - .:/app
