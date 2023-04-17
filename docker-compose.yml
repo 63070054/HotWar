@@ -6,3 +6,5 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
     image: kapraokai/my-frontend_image:1.0
+    volumes:
+      - .:/app
